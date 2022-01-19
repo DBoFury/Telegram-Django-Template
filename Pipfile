@@ -1,0 +1,24 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8 = "*"
+
+[packages]
+django = "*"
+redis = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
+django-environ = "*"
+gunicorn = "*"
+sqlparse = "*"
+python-dateutil = "*"
+python-telegram-bot = "*"
+django-celery-beat = "*"
+celery = "*"
+sqlalchemy = "*"
+
+[requires]
+python_version = "3.9"
