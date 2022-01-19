@@ -1,0 +1,24 @@
+{
+  "name": "Telegram Bot",
+  "description": "Description for Dokku",
+  "keywords": ["python", "django", "celery", "telegram"],
+  "repository": "https://github.com/frikol3000/Telegram-Django-Template",
+  "image": "gliderlabs/herokuish",
+  "addons": ["dokku-postgres", "dokku-redis"],
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    },
+    "beat": {
+      "quantity": 1
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/plotly/heroku-buildpack-python"
+    }
+  ]
+}
