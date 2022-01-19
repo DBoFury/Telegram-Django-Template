@@ -11,7 +11,7 @@ from telegram_bot.celery import app
 
 from bot.handlers.bot_handlers.utils import log_errors
 from bot.inline_handler import inline_handler
-from bot.models import User
+from bot.models import User, Message
 
 
 @log_errors
@@ -21,6 +21,8 @@ def do_echo(update: Update, context: CallbackContext) -> None:
 
     user_text = update.message.text
 
+    Message.get_or_create_message(u, user_text)
+
     update.message.reply_text(
         text=user_text,
         parse_mode='HTML')
@@ -29,6 +31,10 @@ def do_echo(update: Update, context: CallbackContext) -> None:
 def do_start(update: Update, context: CallbackContext) -> None:
     u, _ = User.get_or_create_profile(
         update.message.chat_id, update.message.from_user.username, False)
+
+    user_text = update.message.text
+
+    Message.get_or_create_message(u, user_text)
 
     update.message.reply_text(
         text="Start was pressed.",
