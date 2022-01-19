@@ -37,12 +37,6 @@ class User(CreateUpdateTracker):
         return f'@{self.username}' if self.username is not None else f'{self.user_id}'
 
     @classmethod
-    def set_menu_field(cls, u: User, value: Optional[str] = '') -> None:
-        u = cls.objects.filter(user_id=u.user_id).first()
-        u.menu = value
-        u.save()
-
-    @classmethod
     def get_or_create_profile(cls, chat_id: str, username: str, reset: Optional[bool] = True):
         user_data = cls.objects.get_or_create(
             user_id=chat_id,
@@ -51,8 +45,6 @@ class User(CreateUpdateTracker):
                 'language': 'en',
             }
         )
-        if reset:
-            User.set_menu_field(user_data[0])
         return user_data
 
     @property
