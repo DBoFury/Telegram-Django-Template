@@ -17,11 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 
-# admin.site.site_header = "Telegram Admin"
-# admin.site.site_title = "Telegram Admin"
-# admin.site.index_title = "Welcome to Telegram Admin Page"
-# admin.site.site_url = 'http://t.me/NotificationYouTubeBot'
-# admin.site.site_header = 'Telegram Notification Bot Admin Page'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
