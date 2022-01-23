@@ -131,13 +131,6 @@ CELERY_RESULT_BACKEND = 'redis://@localhost:6379' # Start redis locally to use
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 
-CELERY_BEAT_SCHEDULE = {
-    "check_channels": {
-        "task": "telegram_bot.tasks.check_channels",
-        "schedule": crontab(minute="*/5"),
-    },
-}
-
 PAGINATION_SIZE = 5
 
-SPLITTING_CHARACTER = 'ø'
+SPLITTING_CHARACTER = '+'
